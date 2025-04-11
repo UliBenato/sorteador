@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,17 +14,20 @@ class InsertData extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         title: const Text("Sorteador"),
+        centerTitle: true
       ),
       body: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(20),
           child: Form(
             key: _formKey,
             child: Column(
               children: [
                 TextFormField(
                   controller: _nome,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: "Insira um nome na lista",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),),
                   ),
                   validator: (value) {
 

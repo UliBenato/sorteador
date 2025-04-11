@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 
 class SORTController extends ChangeNotifier{
 
-  List<String> _nomes = [];
+  final List<String> _nomes = [];
   List<String> get nomes => _nomes;
 
   String resultado = '';
