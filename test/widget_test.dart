@@ -18,10 +18,11 @@ void main() {
       create: (context) => SORTController(),
       child: const MyApp(),
     ));
+    //cria regras de UI antes da codificação
     expect(find.text("Por favor, insira um nome na lista"), findsNothing);
     expect(find.byType(ListTile), findsNothing);
 
-    await tester.tap(find.byKey(Key('addButton'))); //cria regras de UI antes da codificação
+    await tester.tap(find.byKey(Key('addButton')));
     await tester.pump();
     expect(find.text("Por favor, insira um nome na lista"), findsOneWidget);
 

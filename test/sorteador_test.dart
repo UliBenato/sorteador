@@ -3,8 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:sorteador/sort_controller.dart';
 
 void main(){
-  late SORTController controller; //obriga o desenvolvedor a criar uma classe específica para a lógica do sorteador
-
+  late SORTController controller;
+  //obriga o desenvolvedor a criar uma classe
+  //específica para a lógica do sorteador
   setUp((){
     controller = SORTController();
   }); //antes de rodar qualquer teste, ele vai rodar o que está dentro do setup
