@@ -49,7 +49,7 @@ class _SorteioResultState extends State<SorteioResult> {
                 style: const TextStyle(
                   fontSize: 36,
                   fontWeight: FontWeight.bold,
-                  color: Colors.deepPurple,
+                  color: Colors.black,
                 ),
               ),
               const SizedBox(height: 30),

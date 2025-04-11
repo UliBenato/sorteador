@@ -11,6 +11,7 @@ class InsertData extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    final nomes = Provider.of<SORTController>(context).nomes;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Sorteador"),
@@ -50,11 +51,14 @@ class InsertData extends StatelessWidget{
                     },
                     child: const Text("Adicionar")),
                 Expanded(
-                  child: ListView.builder(
-                    itemCount: Provider.of<SORTController>(context).nomes.length,
+                  child: nomes.isEmpty
+                      ? const Center(child: Text("Nenhum nome na lista."))
+                  : ListView.builder(
+                    itemCount: nomes.length,
                     itemBuilder: (context, index) {
                       return ListTile(
-                        title: Text(Provider.of<SORTController>(context).nomes[index]),
+                        leading: const Icon(Icons.person),
+                        title: Text(nomes[index]),
                       );
                     },
                   ),
