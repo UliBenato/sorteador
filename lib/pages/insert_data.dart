@@ -26,7 +26,7 @@ class InsertData extends StatelessWidget{
                 TextFormField(
                   controller: _nome,
                   decoration: InputDecoration(
-                    labelText: "Insira um nome na lista",
+                    labelText: "Insira um nome na lista!",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),),
                   ),
