@@ -11,6 +11,7 @@ class InsertData extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    print("teste");
     final nomes = Provider.of<SORTController>(context).nomes;
     return Scaffold(
       appBar: AppBar(
