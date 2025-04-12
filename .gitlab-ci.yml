@@ -1,0 +1,26 @@
+stages:
+  - build
+  - test
+
+variables:
+  FLUTTER_CHANNEL: "stable"
+  FLUTTER_HOME: "$CI_PROJECT_DIR/flutter"
+
+before_script:
+  - git clone https://github.com/UliBenato/sorteador.git -b $FLUTTER_CHANNEL $FLUTTER_HOME
+  - export PATH="$PATH:$FLUTTER_HOME/bin"
+  - flutter doctor
+
+build_app:
+  stage: build
+  script:
+    - flutter pub get
+    - flutter build apk --release
+  artifacts:
+    paths:
+      - build/app/outputs/flutter-apk/app-release.apk
+
+flutter_tests:
+  stage: test
+  script:
+    - flutter test
