@@ -9,7 +9,7 @@ variables:
   FLUTTER_HOME: "$CI_PROJECT_DIR/flutter"
 
 before_script:
-  - git clone https://github.com/flutter/flutter.git -b $FLUTTER_CHANNEL $FLUTTER_HOME
+  - git https://github.com/UliBenato/sorteador.git -b $FLUTTER_CHANNEL $FLUTTER_HOME
   - export PATH="$PATH:$FLUTTER_HOME/bin"
   - flutter doctor
 
