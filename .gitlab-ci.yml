@@ -8,11 +8,6 @@ variables:
   FLUTTER_CHANNEL: "stable"
   FLUTTER_HOME: "$CI_PROJECT_DIR/flutter"
 
-before_script:
-  - git https://github.com/UliBenato/sorteador.git -b $FLUTTER_CHANNEL $FLUTTER_HOME
-  - export PATH="$PATH:$FLUTTER_HOME/bin"
-  - flutter doctor
-
 # Etapa de Build: Compilar o APK
 build_app:
   stage: build
