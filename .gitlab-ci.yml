@@ -3,6 +3,7 @@ stages:
   - test
   - analyze
   - commit_info
+  - lint
 
 # Etapa de Testes: Rodar os testes do Flutter
 flutter_tests:
@@ -20,11 +21,20 @@ build_app:
     paths:
       - build/app/outputs/flutter-apk/app-release.apk
 
-
 # Etapa de Análise de Código: Rodar flutter analyze
 analyze_code:
   stage: analyze
   script:
     - flutter analyze
 
+# Etapa de Lints: validação das regras definidas
+lint_check:
+  stage: lint
+  script:
+    - echo "Rodando lints com flutter analyze"
+    - flutter analyze
+
+# Etapa de Identificação do Commit: Exibir o commit atual
+commit_info:
+  stage: commit_info
 
