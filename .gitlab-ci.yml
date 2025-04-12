@@ -17,24 +17,21 @@ build_app:
   artifacts:
     paths:
       - build/app/outputs/flutter-apk/app-release.apk
-  only:
-    - master
+
 
 # Etapa de Testes: Rodar os testes do Flutter
 flutter_tests:
   stage: test
   script:
     - flutter test
-  only:
-    - master
+
 
 # Etapa de Análise de Código: Rodar flutter analyze
 analyze_code:
   stage: analyze
   script:
     - flutter analyze
-  only:
-    - master
+
 
 # Etapa de Identificação do Commit: Exibir o commit atual
 commit_info:
@@ -43,5 +40,3 @@ commit_info:
     - echo "Commit atual: $CI_COMMIT_REF_NAME"
     - echo "Mensagem do commit: $CI_COMMIT_MESSAGE"
     - echo "SHA do commit: $CI_COMMIT_SHA"
-  only:
-    - master
