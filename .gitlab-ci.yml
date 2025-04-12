@@ -23,7 +23,7 @@ build_app:
     paths:
       - build/app/outputs/flutter-apk/app-release.apk
   only:
-    - main  # ou a branch que você quiser
+    - master
 
 # Etapa de Testes: Rodar os testes do Flutter
 flutter_tests:
@@ -31,7 +31,7 @@ flutter_tests:
   script:
     - flutter test
   only:
-    - main  # ou a branch que você quiser
+    - master
 
 # Etapa de Análise de Código: Rodar flutter analyze
 analyze_code:
@@ -39,7 +39,7 @@ analyze_code:
   script:
     - flutter analyze
   only:
-    - main  # ou a branch que você quiser
+    - master
 
 # Etapa de Identificação do Commit: Exibir o commit atual
 commit_info:
@@ -49,4 +49,4 @@ commit_info:
     - echo "Mensagem do commit: $CI_COMMIT_MESSAGE"
     - echo "SHA do commit: $CI_COMMIT_SHA"
   only:
-    - main  # ou a branch que você quiser
+    - master
