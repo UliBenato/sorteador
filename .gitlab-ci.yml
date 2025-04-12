@@ -1,16 +1,19 @@
 stages:
   - build
   - test
+  - analyze
+  - commit_info
 
 variables:
   FLUTTER_CHANNEL: "stable"
   FLUTTER_HOME: "$CI_PROJECT_DIR/flutter"
 
 before_script:
-  - git clone https://github.com/UliBenato/sorteador.git -b $FLUTTER_CHANNEL $FLUTTER_HOME
+  - git clone https://github.com/flutter/flutter.git -b $FLUTTER_CHANNEL $FLUTTER_HOME
   - export PATH="$PATH:$FLUTTER_HOME/bin"
   - flutter doctor
 
+# Etapa de Build: Compilar o APK
 build_app:
   stage: build
   script:
@@ -19,8 +22,31 @@ build_app:
   artifacts:
     paths:
       - build/app/outputs/flutter-apk/app-release.apk
+  only:
+    - main  # ou a branch que você quiser
 
+# Etapa de Testes: Rodar os testes do Flutter
 flutter_tests:
   stage: test
   script:
     - flutter test
+  only:
+    - main  # ou a branch que você quiser
+
+# Etapa de Análise de Código: Rodar flutter analyze
+analyze_code:
+  stage: analyze
+  script:
+    - flutter analyze
+  only:
+    - main  # ou a branch que você quiser
+
+# Etapa de Identificação do Commit: Exibir o commit atual
+commit_info:
+  stage: commit_info
+  script:
+    - echo "Commit atual: $CI_COMMIT_REF_NAME"
+    - echo "Mensagem do commit: $CI_COMMIT_MESSAGE"
+    - echo "SHA do commit: $CI_COMMIT_SHA"
+  only:
+    - main  # ou a branch que você quiser
