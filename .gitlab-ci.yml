@@ -4,9 +4,11 @@ stages:
   - analyze
   - commit_info
 
-variables:
-  FLUTTER_CHANNEL: "stable"
-  FLUTTER_HOME: "$CI_PROJECT_DIR/flutter"
+# Etapa de Testes: Rodar os testes do Flutter
+flutter_tests:
+  stage: test
+  script:
+    - flutter test
 
 # Etapa de Build: Compilar o APK
 build_app:
@@ -19,13 +21,6 @@ build_app:
       - build/app/outputs/flutter-apk/app-release.apk
 
 
-# Etapa de Testes: Rodar os testes do Flutter
-flutter_tests:
-  stage: test
-  script:
-    - flutter test
-
-
 # Etapa de Análise de Código: Rodar flutter analyze
 analyze_code:
   stage: analyze
@@ -33,10 +28,3 @@ analyze_code:
     - flutter analyze
 
 
-# Etapa de Identificação do Commit: Exibir o commit atual
-commit_info:
-  stage: commit_info
-  script:
-    - echo "Commit atual: $CI_COMMIT_REF_NAME"
-    - echo "Mensagem do commit: $CI_COMMIT_MESSAGE"
-    - echo "SHA do commit: $CI_COMMIT_SHA"
